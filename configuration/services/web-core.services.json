@@ -1,0 +1,58 @@
+{
+    "web.mime-to-codec": {
+        "class": "\\GrizzIt\\Translator\\Component\\MatchingArrayTranslator"
+    },
+    "web.uri-factory": {
+        "class": "\\GrizzIt\\Http\\Factory\\UriFactory"
+    },
+    "web.input-factory": {
+        "class": "\\Ulrack\\Web\\Factory\\InputFactory",
+        "parameters": {
+            "mimeToCodec": "@{services.web.mime-to-codec}",
+            "codecRegistry": "@{invocations.web.codec-registry}",
+            "uriFactory": "@{services.web.uri-factory}"
+        }
+    },
+    "web.output-factory": {
+        "class": "\\Ulrack\\Web\\Factory\\OutputFactory"
+    },
+    "web.error-handler": {
+        "class": "\\Ulrack\\Web\\Component\\Error\\ErrorHandler",
+        "parameters": {
+            "input": "@{services.web-input}",
+            "output": "@{services.web-output}",
+            "outputHandler": "@{parameters.default-output-service}",
+            "errorRegistry": "@{parameters.default-error-registry}"
+        }
+    },
+    "web.authorization-registry": {
+        "class": "\\Ulrack\\Web\\Component\\Registry\\AuthorizationRegistry"
+    },
+    "web.authorization-handler": {
+        "class": "\\Ulrack\\Web\\Component\\Request\\AuthorizationHandler",
+        "parameters": {
+            "serviceFactory": "@{services.core.service.factory}",
+            "registry": "@{services.web.authorization-registry}"
+        }
+    },
+    "web.path-matcher": {
+        "class": "\\Ulrack\\Web\\Component\\Router\\PathMatcher"
+    },
+    "web.group-router": {
+        "class": "\\Ulrack\\Web\\Component\\Router\\GroupRouter",
+        "parameters": {
+            "errorHandler": "@{services.web.error-handler}",
+            "outputHandler": "@{parameters.default-output-service}",
+            "serviceFactory": "@{services.core.service.factory}",
+            "authorizationHandler": "@{services.web.authorization-handler}",
+            "pathMatcher": "@{services.web.path-matcher}",
+            "routeGroups": "@{invocations.web.route-compilation}"
+        }
+    },
+    "web.route-compiler": {
+        "class": "\\Ulrack\\WebApplication\\Component\\Compiler\\RouteCompiler",
+        "parameters": {
+            "cache": "@{invocations.cache.route-compilation}"
+        }
+    }
+}

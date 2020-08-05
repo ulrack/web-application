@@ -1,0 +1,38 @@
+{
+    "cache.route-compilation": {
+        "service": "services.core.cache.manager",
+        "method": "getCache",
+        "parameters": {
+            "key": "route-compilation"
+        }
+    },
+    "web.codec-registry": {
+        "service": "services.core.codec.manager",
+        "method": "getCodecRegistry"
+    },
+    "web.route-compilation": {
+        "service": "services.web.route-compiler",
+        "method": "compile",
+        "parameters": {
+            "registry": "@{invocations.web.get-config-registry}"
+        }
+    },
+    "web.get-config-registry": {
+        "service": "services.core.configuration.manager",
+        "method": "getConfigRegistry"
+    },
+    "web.config.web-mime-to-codec": {
+        "service": "invocations.web.get-config-registry",
+        "method": "get",
+        "parameters": {
+            "key": "web-mime-to-codec"
+        }
+    },
+    "web.config.http-authorization": {
+        "service": "invocations.web.get-config-registry",
+        "method": "get",
+        "parameters": {
+            "key": "http-authorization"
+        }
+    }
+}

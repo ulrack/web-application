@@ -1,0 +1,17 @@
+language: php
+php:
+    - '7.3'
+    - '7.4'
+
+before_script:
+    - yes '' | pecl install yaml
+    - composer install
+
+script:
+    - composer validate --strict
+    - vendor/bin/phpunit --coverage-text
+    - vendor/bin/phpcs src/ tests/
+
+cache:
+  directories:
+    - $HOME/.composer/cache

@@ -1,0 +1,25 @@
+{
+    "web.header-handler": {
+        "class": "\\Ulrack\\Web\\Component\\Output\\HeaderHandler"
+    },
+    "web.converter.codec": {
+        "class": "\\Ulrack\\Web\\Component\\Output\\CodecOutputConverter",
+        "parameters": {
+            "mimeToCodec": "@{services.web.mime-to-codec}",
+            "codecRegistry": "@{invocations.web.codec-registry}"
+        }
+    },
+    "web.converter.plain": {
+        "class": "\\Ulrack\\Web\\Component\\Output\\PlainOutputConverter"
+    },
+    "web.handler.output": {
+        "class": "\\Ulrack\\Web\\Component\\Output\\OutputHandler",
+        "parameters": {
+            "headerHandler": "@{services.web.header-handler}",
+            "outputConverters": [
+                "@{services.web.converter.codec}",
+                "@{services.web.converter.plain}"
+            ]
+        }
+    }
+}

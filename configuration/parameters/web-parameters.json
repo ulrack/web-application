@@ -1,0 +1,5 @@
+{
+    "default-error-registry": "@{services.web.errors.default.plain.registry}",
+    "default-output-service": "@{services.web.handler.output}",
+    "default-output-content-type": "text/plain"
+}

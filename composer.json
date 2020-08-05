@@ -1,0 +1,62 @@
+{
+    "name": "ulrack/web-application",
+    "description": "The Ulrack web application.",
+    "keywords": [
+        "framework",
+        "web",
+        "application"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "prefer-stable": true,
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.3",
+        "grizz-it/cache": "^1.0",
+        "grizz-it/configuration": "^1.1",
+        "grizz-it/http": "^1.0",
+        "grizz-it/storage": "^1.0",
+        "ulrack/invocation-extension": "^1.0",
+        "ulrack/kernel": "^1.3",
+        "ulrack/web": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Ulrack",
+            "homepage": "https://www.ulrack.com/",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Ulrack\\WebApplication\\": "src/"
+        },
+        "files": [
+            "locator.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ulrack\\WebApplication\\Tests\\": "tests/"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "/tests",
+            "/.gitignore",
+            "/.travis.yml",
+            "/phpunit.xml",
+            "/phpcs.xml",
+            "/PULL_REQUEST_TEMPLATE.md",
+            "/CODE_OF_CONDUCT.md",
+            "/CONTRIBUTING.md"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3",
+        "squizlabs/php_codesniffer": "^3.5"
+    }
+}
