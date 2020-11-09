@@ -13,7 +13,6 @@ use Ulrack\Web\Common\Error\ErrorHandlerInterface;
 use Ulrack\Services\Common\ServiceFactoryInterface;
 use GrizzIt\Translator\Component\MatchingArrayTranslator;
 use Ulrack\Kernel\Common\Manager\ServiceManagerInterface;
-use Ulrack\Web\Common\Registry\AuthorizationRegistryInterface;
 use Ulrack\WebApplication\Component\Application\WebApplication;
 
 /**
@@ -43,21 +42,17 @@ class WebApplicationTest extends TestCase
         $serviceManager->method('getServiceFactory')
             ->willReturn($serviceFactory);
 
-        $serviceFactory->expects(self::exactly(7))
+        $serviceFactory->expects(self::exactly(5))
             ->method('create')
             ->withConsecutive(
                 ['services.web.mime-to-codec'],
                 ['invocations.web.config.web-mime-to-codec'],
-                ['services.web.authorization-registry'],
-                ['invocations.web.config.http-authorization'],
                 ['services.web.input-factory'],
                 ['services.web.output-factory'],
                 ['services.web.group-router']
             )->willReturnOnConsecutiveCalls(
                 $this->createMock(MatchingArrayTranslator::class),
                 [['left' => ['application/json'], 'right' => ['json']]],
-                $this->createMock(AuthorizationRegistryInterface::class),
-                [['key' => 'foo', 'service' => 'sevices.foo']],
                 $this->createMock(InputFactory::class),
                 $this->createMock(OutputFactory::class),
                 $router
@@ -92,13 +87,11 @@ class WebApplicationTest extends TestCase
         $serviceManager->method('getServiceFactory')
             ->willReturn($serviceFactory);
 
-        $serviceFactory->expects(self::exactly(8))
+        $serviceFactory->expects(self::exactly(6))
             ->method('create')
             ->withConsecutive(
                 ['services.web.mime-to-codec'],
                 ['invocations.web.config.web-mime-to-codec'],
-                ['services.web.authorization-registry'],
-                ['invocations.web.config.http-authorization'],
                 ['services.web.input-factory'],
                 ['services.web.output-factory'],
                 ['services.web.group-router'],
@@ -106,8 +99,6 @@ class WebApplicationTest extends TestCase
             )->willReturnOnConsecutiveCalls(
                 $this->createMock(MatchingArrayTranslator::class),
                 [['left' => ['application/json'], 'right' => ['json']]],
-                $this->createMock(AuthorizationRegistryInterface::class),
-                [['key' => 'foo', 'service' => 'sevices.foo']],
                 $this->createMock(InputFactory::class),
                 $this->createMock(OutputFactory::class),
                 $router,
@@ -150,13 +141,11 @@ class WebApplicationTest extends TestCase
         $serviceManager->method('getServiceFactory')
             ->willReturn($serviceFactory);
 
-        $serviceFactory->expects(self::exactly(9))
+        $serviceFactory->expects(self::exactly(7))
             ->method('create')
             ->withConsecutive(
                 ['services.web.mime-to-codec'],
                 ['invocations.web.config.web-mime-to-codec'],
-                ['services.web.authorization-registry'],
-                ['invocations.web.config.http-authorization'],
                 ['services.web.input-factory'],
                 ['services.web.output-factory'],
                 ['services.web.group-router'],
@@ -165,8 +154,6 @@ class WebApplicationTest extends TestCase
             )->willReturnOnConsecutiveCalls(
                 $this->createMock(MatchingArrayTranslator::class),
                 [['left' => ['application/json'], 'right' => ['json']]],
-                $this->createMock(AuthorizationRegistryInterface::class),
-                [['key' => 'foo', 'service' => 'sevices.foo']],
                 $this->createMock(InputFactory::class),
                 $this->createMock(OutputFactory::class),
                 $router,
@@ -221,13 +208,11 @@ class WebApplicationTest extends TestCase
         $serviceManager->method('getServiceFactory')
             ->willReturn($serviceFactory);
 
-        $serviceFactory->expects(self::exactly(9))
+        $serviceFactory->expects(self::exactly(7))
             ->method('create')
             ->withConsecutive(
                 ['services.web.mime-to-codec'],
                 ['invocations.web.config.web-mime-to-codec'],
-                ['services.web.authorization-registry'],
-                ['invocations.web.config.http-authorization'],
                 ['services.web.input-factory'],
                 ['services.web.output-factory'],
                 ['services.web.group-router'],
@@ -236,8 +221,6 @@ class WebApplicationTest extends TestCase
             )->willReturnOnConsecutiveCalls(
                 $this->createMock(MatchingArrayTranslator::class),
                 [['left' => ['application/json'], 'right' => ['json']]],
-                $this->createMock(AuthorizationRegistryInterface::class),
-                [['key' => 'foo', 'service' => 'sevices.foo']],
                 $this->createMock(InputFactory::class),
                 $outputFactory,
                 $router,

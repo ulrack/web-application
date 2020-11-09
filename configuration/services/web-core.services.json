@@ -25,14 +25,10 @@
             "errorRegistry": "@{parameters.default-error-registry}"
         }
     },
-    "web.authorization-registry": {
-        "class": "\\Ulrack\\Web\\Component\\Registry\\AuthorizationRegistry"
-    },
     "web.authorization-handler": {
         "class": "\\Ulrack\\Web\\Component\\Request\\AuthorizationHandler",
         "parameters": {
-            "serviceFactory": "@{services.core.service.factory}",
-            "registry": "@{services.web.authorization-registry}"
+            "serviceFactory": "@{services.core.service.factory}"
         }
     },
     "web.path-matcher": {
@@ -46,13 +42,7 @@
             "serviceFactory": "@{services.core.service.factory}",
             "authorizationHandler": "@{services.web.authorization-handler}",
             "pathMatcher": "@{services.web.path-matcher}",
-            "routeGroups": "@{invocations.web.route-compilation}"
-        }
-    },
-    "web.route-compiler": {
-        "class": "\\Ulrack\\WebApplication\\Component\\Compiler\\RouteCompiler",
-        "parameters": {
-            "cache": "@{invocations.cache.route-compilation}"
+            "routeGroups": "@{invocations.web.get-all-route-groups}"
         }
     }
 }

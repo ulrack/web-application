@@ -100,21 +100,6 @@ class WebApplication implements ApplicationInterface
             );
         }
 
-        $authRegistry = $serviceFactory->create(
-            'services.web.authorization-registry'
-        );
-
-        foreach (
-            $serviceFactory->create(
-                'invocations.web.config.http-authorization'
-            ) as $authorization
-        ) {
-            $authRegistry->register(
-                $authorization['key'],
-                $authorization['service']
-            );
-        }
-
         $inputFactory = $serviceFactory->create('services.web.input-factory');
         $input = $inputFactory->create(
             $this->server,

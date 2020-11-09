@@ -4,8 +4,8 @@ After the application is setup, an endpoint can be created. This requires 6
 files:
 - `composer.json`
 - `locator.php`
-- `configuration/route/my.route.json`
-- `configuration/route-group/my.route.group.json`
+- `configuration/routes/my.routes.json`
+- `configuration/route-groups/my.route.groups.json`
 - `configuration/services/my.services.json`
 - `src/Endpoint/MyEndpoint.php`
 
@@ -43,43 +43,43 @@ PackageLocator::registerLocation(__DIR__);
 
 ```
 
-## configuration/route/my.route.json
+## configuration/routes/my.routes.json
 
 This file will take care of the registration of the route. The contents will
 look something along the lines of:
 ```json
 {
-    "$schema": "route.schema.json",
-    "key": "my-route",
-    "path": "/",
-    "service": "services.my-endpoint",
-    "methods": [
-        "GET"
-    ],
-    "outputService": "services.web.handler.output"
+    "my-route": {
+        "path": "/",
+        "service": "services.my-endpoint",
+        "methods": [
+            "GET"
+        ],
+        "outputService": "services.web.handler.output"
+    }
 }
 ```
 
 This will create a route which will function as the "home" endpoint.
 
-## configuration/route-group/my.route.group.json
+## configuration/route-groups/my.route.groups.json
 
 This file will take care of the registration of the route group. The contents
 will look something along the lines of:
 ```json
 {
-    "$schema": "route-group.schema.json",
-    "key": "main",
-    "ports": [
-        80,
-        443
-    ],
-    "hosts": [
-        "*.*.*",
-        "*.*"
-    ],
-    "route": "my-route",
-    "errorRegistryService": "services.web.errors.default.api.registry"
+    "main": {
+        "ports": [
+            80,
+            443
+        ],
+        "hosts": [
+            "*.*.*",
+            "*.*"
+        ],
+        "route": "my-route",
+        "errorRegistryService": "services.web.errors.default.api.registry"
+    }
 }
 ```
 
