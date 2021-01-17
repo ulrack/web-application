@@ -4,12 +4,13 @@ After the application is setup, an endpoint can be created. This requires 6
 files:
 - `composer.json`
 - `locator.php`
-- `configuration/routes/my.routes.json`
-- `configuration/route-groups/my.route.groups.json`
+- `configuration/services/my.routes.json`
+- `configuration/tags/my.route.tags.json`
 - `configuration/services/my.services.json`
 - `src/Endpoint/MyEndpoint.php`
+- `src/Router/MyRouter.php`
 
-The last four files can have any other (more appropriate) name. The endpoint
+The last five files can have any other (more appropriate) name. The endpoint
 can also be configured inside a project.
 
 ## composer.json
@@ -43,49 +44,29 @@ PackageLocator::registerLocation(__DIR__);
 
 ```
 
-## configuration/routes/my.routes.json
+## configuration/services/my.routes.json
 
-This file will take care of the registration of the route. The contents will
+This file will take care of the registration of the router. The contents will
 look something along the lines of:
 ```json
 {
-    "my-route": {
-        "path": "/",
-        "service": "services.my-endpoint",
-        "methods": [
-            "GET"
-        ],
-        "outputService": "services.web.handler.output"
+    "default.router": {
+        "class": "\\MyVendor\\MyEndpointPackage\\Router\\DefaultRouter"
     }
 }
 ```
 
-This will create a route which will function as the "home" endpoint.
-
-## configuration/route-groups/my.route.groups.json
-
-This file will take care of the registration of the route group. The contents
-will look something along the lines of:
+## configuration/tags/my.route.tags.json
+This file will add the router to the default router, so it is accepted
+immediatly. The contents should be as follows:
 ```json
 {
-    "main": {
-        "ports": [
-            80,
-            443
-        ],
-        "hosts": [
-            "*.*.*",
-            "*.*"
-        ],
-        "route": "my-route",
-        "errorRegistryService": "services.web.errors.default.api.registry"
+    "my.tag": {
+        "trigger": "triggers.web.main.routers",
+        "service": "services.default.router"
     }
 }
 ```
-
-This will setup a route group, which accepts all primary domains and
-sub-domains. It uses the previously configured home route, as the default home
-endpoint.
 
 ## configuration/services/my.services.json
 
@@ -128,6 +109,54 @@ class MyEndpoint implements EndpointInterface
     ): void {
         $output->setContentType('application/json');
         $output->setOutput($output->getAcceptedContentTypes());
+    }
+}
+
+```
+
+## src/Router/MyRouter.php
+
+The router uses the `RouterInterface` from the `ulrack/web` package. The
+implementation would look like this:
+```php
+<?php
+
+namespace MyVendor\MyEndpointPackage\Router;
+
+use Ulrack\Web\Common\Endpoint\InputInterface;
+use Ulrack\Web\Common\Endpoint\OutputInterface;
+use Ulrack\Web\Common\Router\RouterInterface;
+
+class MyRouter implements RouterInterface
+{
+    /**
+     * Determines whether the router accepts the request.
+     *
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     *
+     * @return bool
+     */
+    public function accepts(
+        InputInterface $input,
+        OutputInterface $output
+    ): bool {
+        return true;
+    }
+
+    /**
+     * Resolves the request to an endpoint, executes it and renders the response.
+     *
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     *
+     * @return void
+     */
+    public function __invoke(
+        InputInterface $input,
+        OutputInterface $output
+    ): void {
+        $input->setParameter('endpoint', 'services.my-endpoint');
     }
 }
 
