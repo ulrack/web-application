@@ -115,10 +115,10 @@ class WebApplication implements ApplicationInterface
         $serviceManager->registerService('web-input', $input);
         $serviceManager->registerService('web-output', $output);
 
-        $groupRouter = $serviceFactory->create('services.web.group-router');
-
+        $router = $serviceFactory->create('services.web.router.base');
         try {
-            $groupRouter($input, $output);
+            $router->accepts($input, $output);
+            $router($input, $output);
         } catch (Throwable $exception) {
             $errorHandler = $serviceFactory->create(
                 'services.web.error-handler'

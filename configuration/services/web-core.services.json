@@ -34,15 +34,19 @@
     "web.path-matcher": {
         "class": "\\Ulrack\\Web\\Component\\Router\\PathMatcher"
     },
-    "web.group-router": {
-        "class": "\\Ulrack\\Web\\Component\\Router\\GroupRouter",
+    "web.router.base": {
+        "class": "\\Ulrack\\Web\\Component\\Router\\BaseRouter",
         "parameters": {
-            "errorHandler": "@{services.web.error-handler}",
+            "router": "@{services.web.router.aggregate}",
             "outputHandler": "@{parameters.default-output-service}",
-            "serviceFactory": "@{services.core.service.factory}",
-            "authorizationHandler": "@{services.web.authorization-handler}",
-            "pathMatcher": "@{services.web.path-matcher}",
-            "routeGroups": "@{invocations.web.get-all-route-groups}"
+            "errorHandler": "@{services.web.error-handler}",
+            "serviceFactory": "@{services.core.service.factory}"
+        }
+    },
+    "web.router.aggregate": {
+        "class": "\\Ulrack\\Web\\Component\\Router\\RouterAggregate",
+        "parameters": {
+            "routers": "@{triggers.web.main.routers}"
         }
     }
 }

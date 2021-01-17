@@ -49,7 +49,7 @@ class WebApplicationTest extends TestCase
                 ['invocations.web.config.web-mime-to-codec'],
                 ['services.web.input-factory'],
                 ['services.web.output-factory'],
-                ['services.web.group-router']
+                ['services.web.router.base']
             )->willReturnOnConsecutiveCalls(
                 $this->createMock(MatchingArrayTranslator::class),
                 [['left' => ['application/json'], 'right' => ['json']]],
@@ -94,7 +94,7 @@ class WebApplicationTest extends TestCase
                 ['invocations.web.config.web-mime-to-codec'],
                 ['services.web.input-factory'],
                 ['services.web.output-factory'],
-                ['services.web.group-router'],
+                ['services.web.router.base'],
                 ['services.web.error-handler']
             )->willReturnOnConsecutiveCalls(
                 $this->createMock(MatchingArrayTranslator::class),
@@ -148,7 +148,7 @@ class WebApplicationTest extends TestCase
                 ['invocations.web.config.web-mime-to-codec'],
                 ['services.web.input-factory'],
                 ['services.web.output-factory'],
-                ['services.web.group-router'],
+                ['services.web.router.base'],
                 ['services.web.error-handler'],
                 ['parameters.default-output-content-type']
             )->willReturnOnConsecutiveCalls(
@@ -215,7 +215,7 @@ class WebApplicationTest extends TestCase
                 ['invocations.web.config.web-mime-to-codec'],
                 ['services.web.input-factory'],
                 ['services.web.output-factory'],
-                ['services.web.group-router'],
+                ['services.web.router.base'],
                 ['services.web.error-handler'],
                 ['parameters.default-output-content-type']
             )->willReturnOnConsecutiveCalls(
