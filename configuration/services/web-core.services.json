@@ -47,8 +47,8 @@
         "web.error-handler": {
             "class": "\\Ulrack\\Web\\Component\\Error\\ErrorHandler",
             "parameters": {
-                "input": "@{services.web-input}",
-                "output": "@{services.web-output}",
+                "input": "@{internal.web-input}",
+                "output": "@{internal.web-output}",
                 "outputHandler": "@{parameters.default-output-service}",
                 "errorRegistry": "@{parameters.default-error-registry}"
             }
