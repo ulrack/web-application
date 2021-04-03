@@ -5,7 +5,6 @@ files:
 - `composer.json`
 - `locator.php`
 - `configuration/services/my.routes.json`
-- `configuration/tags/my.route.tags.json`
 - `configuration/services/my.services.json`
 - `src/Endpoint/MyEndpoint.php`
 - `src/Router/MyRouter.php`
@@ -46,36 +45,24 @@ PackageLocator::registerLocation(__DIR__);
 
 ## configuration/services/my.routes.json
 
-This file will take care of the registration of the router. The contents will
-look something along the lines of:
+This file will take care of the registration of the router and add the router to
+the default router, so it is accepted immediatly. The contents will look
+something along the lines of:
 ```json
 {
-    "default.router": {
-        "class": "\\MyVendor\\MyEndpointPackage\\Router\\DefaultRouter"
-    }
-}
-```
-
-## configuration/tags/my.route.tags.json
-This file will add the router to the default router, so it is accepted
-immediatly. The contents should be as follows:
-```json
-{
-    "my.tag": {
-        "trigger": "triggers.web.main.routers",
-        "service": "services.default.router"
-    }
-}
-```
-
-## configuration/services/my.services.json
-
-This file is required to register the service, which will be retrieved in the
-router. The contents of this file will look like the following:
-```json
-{
-    "my-endpoint": {
-        "class": "\\MyVendor\\MyEndpointPackage\\Endpoint\\MyEndpoint"
+    "services": {
+        "default.router": {
+            "class": "\\MyVendor\\MyEndpointPackage\\Router\\DefaultRouter"
+        },
+        "my-endpoint": {
+            "class": "\\MyVendor\\MyEndpointPackage\\Endpoint\\MyEndpoint"
+        }
+    },
+    "tags": {
+        "my.tag": {
+            "trigger": "triggers.web.main.routers",
+            "service": "services.default.router"
+        }
     }
 }
 ```

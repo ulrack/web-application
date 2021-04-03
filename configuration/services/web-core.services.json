@@ -1,52 +1,81 @@
 {
-    "web.mime-to-codec": {
-        "class": "\\GrizzIt\\Translator\\Component\\MatchingArrayTranslator"
+    "parameters": {
+        "default-error-registry": "@{services.web.errors.default.plain.registry}",
+        "default-output-service": "@{services.web.handler.output}",
+        "default-output-content-type": "text/plain"
     },
-    "web.uri-factory": {
-        "class": "\\GrizzIt\\Http\\Factory\\UriFactory"
-    },
-    "web.input-factory": {
-        "class": "\\Ulrack\\Web\\Factory\\InputFactory",
-        "parameters": {
-            "mimeToCodec": "@{services.web.mime-to-codec}",
-            "codecRegistry": "@{invocations.web.codec-registry}",
-            "uriFactory": "@{services.web.uri-factory}"
+    "triggers": {
+        "web.main.routers": {
+            "service": "services.web.router.aggregate"
         }
     },
-    "web.output-factory": {
-        "class": "\\Ulrack\\Web\\Factory\\OutputFactory"
-    },
-    "web.error-handler": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ErrorHandler",
-        "parameters": {
-            "input": "@{services.web-input}",
-            "output": "@{services.web-output}",
-            "outputHandler": "@{parameters.default-output-service}",
-            "errorRegistry": "@{parameters.default-error-registry}"
+    "invocations": {
+        "web.codec-registry": {
+            "service": "internal.core.codec.manager",
+            "method": "getCodecRegistry"
+        },
+        "web.get-config-registry": {
+            "service": "internal.core.configuration.manager",
+            "method": "getConfigRegistry"
+        },
+        "web.config.web-mime-to-codec": {
+            "service": "invocations.web.get-config-registry",
+            "method": "get",
+            "parameters": {
+                "key": "web-mime-to-codec"
+            }
         }
     },
-    "web.authorization-handler": {
-        "class": "\\Ulrack\\Web\\Component\\Request\\AuthorizationHandler",
-        "parameters": {
-            "serviceFactory": "@{services.core.service.factory}"
-        }
-    },
-    "web.path-matcher": {
-        "class": "\\Ulrack\\Web\\Component\\Router\\PathMatcher"
-    },
-    "web.router.base": {
-        "class": "\\Ulrack\\Web\\Component\\Router\\BaseRouter",
-        "parameters": {
-            "router": "@{services.web.router.aggregate}",
-            "outputHandler": "@{parameters.default-output-service}",
-            "errorHandler": "@{services.web.error-handler}",
-            "serviceFactory": "@{services.core.service.factory}"
-        }
-    },
-    "web.router.aggregate": {
-        "class": "\\Ulrack\\Web\\Component\\Router\\RouterAggregate",
-        "parameters": {
-            "routers": "@{triggers.web.main.routers}"
+    "services": {
+        "web.mime-to-codec": {
+            "class": "\\GrizzIt\\Translator\\Component\\MatchingArrayTranslator"
+        },
+        "web.uri-factory": {
+            "class": "\\GrizzIt\\Http\\Factory\\UriFactory"
+        },
+        "web.input-factory": {
+            "class": "\\Ulrack\\Web\\Factory\\InputFactory",
+            "parameters": {
+                "mimeToCodec": "@{services.web.mime-to-codec}",
+                "codecRegistry": "@{invocations.web.codec-registry}",
+                "uriFactory": "@{services.web.uri-factory}"
+            }
+        },
+        "web.output-factory": {
+            "class": "\\Ulrack\\Web\\Factory\\OutputFactory"
+        },
+        "web.error-handler": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ErrorHandler",
+            "parameters": {
+                "input": "@{services.web-input}",
+                "output": "@{services.web-output}",
+                "outputHandler": "@{parameters.default-output-service}",
+                "errorRegistry": "@{parameters.default-error-registry}"
+            }
+        },
+        "web.authorization-handler": {
+            "class": "\\Ulrack\\Web\\Component\\Request\\AuthorizationHandler",
+            "parameters": {
+                "serviceFactory": "@{services.core.service.factory}"
+            }
+        },
+        "web.path-matcher": {
+            "class": "\\Ulrack\\Web\\Component\\Router\\PathMatcher"
+        },
+        "web.router.base": {
+            "class": "\\Ulrack\\Web\\Component\\Router\\BaseRouter",
+            "parameters": {
+                "router": "@{services.web.router.aggregate}",
+                "outputHandler": "@{parameters.default-output-service}",
+                "errorHandler": "@{services.web.error-handler}",
+                "serviceFactory": "@{internal.core.service.factory}"
+            }
+        },
+        "web.router.aggregate": {
+            "class": "\\Ulrack\\Web\\Component\\Router\\RouterAggregate",
+            "parameters": {
+                "routers": "@{triggers.web.main.routers}"
+            }
         }
     }
 }

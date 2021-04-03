@@ -10,9 +10,9 @@ use Ulrack\Web\Common\Router\RouterInterface;
 use Ulrack\Web\Exception\NotAcceptedException;
 use Ulrack\Web\Common\Endpoint\OutputInterface;
 use Ulrack\Web\Common\Error\ErrorHandlerInterface;
-use Ulrack\Services\Common\ServiceFactoryInterface;
 use GrizzIt\Translator\Component\MatchingArrayTranslator;
 use Ulrack\Kernel\Common\Manager\ServiceManagerInterface;
+use GrizzIt\Services\Common\Factory\ServiceFactoryInterface;
 use Ulrack\WebApplication\Component\Application\WebApplication;
 
 /**

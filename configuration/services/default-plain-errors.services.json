@@ -1,329 +1,331 @@
 {
-    "web.errors.default.plain.registry": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ErrorRegistry",
-        "parameters": {
-            "errors": {
-                "400": "@{services.web.errors.default.plain.400}",
-                "401": "@{services.web.errors.default.plain.401}",
-                "402": "@{services.web.errors.default.plain.402}",
-                "403": "@{services.web.errors.default.plain.403}",
-                "404": "@{services.web.errors.default.plain.404}",
-                "405": "@{services.web.errors.default.plain.405}",
-                "406": "@{services.web.errors.default.plain.406}",
-                "407": "@{services.web.errors.default.plain.407}",
-                "408": "@{services.web.errors.default.plain.408}",
-                "409": "@{services.web.errors.default.plain.409}",
-                "410": "@{services.web.errors.default.plain.410}",
-                "411": "@{services.web.errors.default.plain.411}",
-                "412": "@{services.web.errors.default.plain.412}",
-                "413": "@{services.web.errors.default.plain.413}",
-                "414": "@{services.web.errors.default.plain.414}",
-                "415": "@{services.web.errors.default.plain.415}",
-                "416": "@{services.web.errors.default.plain.416}",
-                "417": "@{services.web.errors.default.plain.417}",
-                "418": "@{services.web.errors.default.plain.418}",
-                "421": "@{services.web.errors.default.plain.421}",
-                "422": "@{services.web.errors.default.plain.422}",
-                "423": "@{services.web.errors.default.plain.423}",
-                "424": "@{services.web.errors.default.plain.424}",
-                "425": "@{services.web.errors.default.plain.425}",
-                "426": "@{services.web.errors.default.plain.426}",
-                "428": "@{services.web.errors.default.plain.428}",
-                "429": "@{services.web.errors.default.plain.429}",
-                "431": "@{services.web.errors.default.plain.431}",
-                "451": "@{services.web.errors.default.plain.451}",
-                "500": "@{services.web.errors.default.plain.500}",
-                "501": "@{services.web.errors.default.plain.501}",
-                "502": "@{services.web.errors.default.plain.502}",
-                "503": "@{services.web.errors.default.plain.503}",
-                "504": "@{services.web.errors.default.plain.504}",
-                "505": "@{services.web.errors.default.plain.505}",
-                "506": "@{services.web.errors.default.plain.506}",
-                "507": "@{services.web.errors.default.plain.507}",
-                "508": "@{services.web.errors.default.plain.508}",
-                "510": "@{services.web.errors.default.plain.510}",
-                "511": "@{services.web.errors.default.plain.511}"
+    "services": {
+        "web.errors.default.plain.registry": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ErrorRegistry",
+            "parameters": {
+                "errors": {
+                    "400": "@{services.web.errors.default.plain.400}",
+                    "401": "@{services.web.errors.default.plain.401}",
+                    "402": "@{services.web.errors.default.plain.402}",
+                    "403": "@{services.web.errors.default.plain.403}",
+                    "404": "@{services.web.errors.default.plain.404}",
+                    "405": "@{services.web.errors.default.plain.405}",
+                    "406": "@{services.web.errors.default.plain.406}",
+                    "407": "@{services.web.errors.default.plain.407}",
+                    "408": "@{services.web.errors.default.plain.408}",
+                    "409": "@{services.web.errors.default.plain.409}",
+                    "410": "@{services.web.errors.default.plain.410}",
+                    "411": "@{services.web.errors.default.plain.411}",
+                    "412": "@{services.web.errors.default.plain.412}",
+                    "413": "@{services.web.errors.default.plain.413}",
+                    "414": "@{services.web.errors.default.plain.414}",
+                    "415": "@{services.web.errors.default.plain.415}",
+                    "416": "@{services.web.errors.default.plain.416}",
+                    "417": "@{services.web.errors.default.plain.417}",
+                    "418": "@{services.web.errors.default.plain.418}",
+                    "421": "@{services.web.errors.default.plain.421}",
+                    "422": "@{services.web.errors.default.plain.422}",
+                    "423": "@{services.web.errors.default.plain.423}",
+                    "424": "@{services.web.errors.default.plain.424}",
+                    "425": "@{services.web.errors.default.plain.425}",
+                    "426": "@{services.web.errors.default.plain.426}",
+                    "428": "@{services.web.errors.default.plain.428}",
+                    "429": "@{services.web.errors.default.plain.429}",
+                    "431": "@{services.web.errors.default.plain.431}",
+                    "451": "@{services.web.errors.default.plain.451}",
+                    "500": "@{services.web.errors.default.plain.500}",
+                    "501": "@{services.web.errors.default.plain.501}",
+                    "502": "@{services.web.errors.default.plain.502}",
+                    "503": "@{services.web.errors.default.plain.503}",
+                    "504": "@{services.web.errors.default.plain.504}",
+                    "505": "@{services.web.errors.default.plain.505}",
+                    "506": "@{services.web.errors.default.plain.506}",
+                    "507": "@{services.web.errors.default.plain.507}",
+                    "508": "@{services.web.errors.default.plain.508}",
+                    "510": "@{services.web.errors.default.plain.510}",
+                    "511": "@{services.web.errors.default.plain.511}"
+                }
             }
-        }
-    },
-    "web.errors.default.plain.400": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 400,
-            "errorMessage": "Bad Request"
-        }
-    },
-    "web.errors.default.plain.401": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 401,
-            "errorMessage": "Unauthorized"
-        }
-    },
-    "web.errors.default.plain.402": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 402,
-            "errorMessage": "Payment Required"
-        }
-    },
-    "web.errors.default.plain.403": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 403,
-            "errorMessage": "Forbidden"
-        }
-    },
-    "web.errors.default.plain.404": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 404,
-            "errorMessage": "Not Found"
-        }
-    },
-    "web.errors.default.plain.405": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 405,
-            "errorMessage": "Method Not Allowed"
-        }
-    },
-    "web.errors.default.plain.406": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 406,
-            "errorMessage": "Not Acceptable"
-        }
-    },
-    "web.errors.default.plain.407": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 407,
-            "errorMessage": "Proxy Authentication Required"
-        }
-    },
-    "web.errors.default.plain.408": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 408,
-            "errorMessage": "Request Timeout"
-        }
-    },
-    "web.errors.default.plain.409": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 409,
-            "errorMessage": "Conflict"
-        }
-    },
-    "web.errors.default.plain.410": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 410,
-            "errorMessage": "Gone"
-        }
-    },
-    "web.errors.default.plain.411": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 411,
-            "errorMessage": "Length Required"
-        }
-    },
-    "web.errors.default.plain.412": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 412,
-            "errorMessage": "Precondition Failed"
-        }
-    },
-    "web.errors.default.plain.413": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 413,
-            "errorMessage": "Payload Too Large"
-        }
-    },
-    "web.errors.default.plain.414": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 414,
-            "errorMessage": "URI Too Long"
-        }
-    },
-    "web.errors.default.plain.415": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 415,
-            "errorMessage": "Unsupported Media Type"
-        }
-    },
-    "web.errors.default.plain.416": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 416,
-            "errorMessage": "Range Not Satisfiable"
-        }
-    },
-    "web.errors.default.plain.417": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 417,
-            "errorMessage": "Expectation Failed"
-        }
-    },
-    "web.errors.default.plain.418": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 418,
-            "errorMessage": "I'm a teapot"
-        }
-    },
-    "web.errors.default.plain.421": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 421,
-            "errorMessage": "Misdirected Request"
-        }
-    },
-    "web.errors.default.plain.422": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 422,
-            "errorMessage": "Unprocessable Entity"
-        }
-    },
-    "web.errors.default.plain.423": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 423,
-            "errorMessage": "Locked"
-        }
-    },
-    "web.errors.default.plain.424": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 424,
-            "errorMessage": "Failed Dependency"
-        }
-    },
-    "web.errors.default.plain.425": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 425,
-            "errorMessage": "Too Early"
-        }
-    },
-    "web.errors.default.plain.426": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 426,
-            "errorMessage": "Upgrade Required"
-        }
-    },
-    "web.errors.default.plain.428": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 428,
-            "errorMessage": "Precondition Required"
-        }
-    },
-    "web.errors.default.plain.429": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 429,
-            "errorMessage": "Too Many Requests"
-        }
-    },
-    "web.errors.default.plain.431": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 431,
-            "errorMessage": "Request Header Fields Too Large"
-        }
-    },
-    "web.errors.default.plain.451": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 451,
-            "errorMessage": "Unavailable For Legal Reasons"
-        }
-    },
-    "web.errors.default.plain.500": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 500,
-            "errorMessage": "Internal Server Error"
-        }
-    },
-    "web.errors.default.plain.501": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 501,
-            "errorMessage": "Not Implemented"
-        }
-    },
-    "web.errors.default.plain.502": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 502,
-            "errorMessage": "Bad Gateway"
-        }
-    },
-    "web.errors.default.plain.503": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 503,
-            "errorMessage": "Service Unavailable"
-        }
-    },
-    "web.errors.default.plain.504": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 504,
-            "errorMessage": "Gateway Timeout"
-        }
-    },
-    "web.errors.default.plain.505": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 505,
-            "errorMessage": "HTTP Version Not Supported"
-        }
-    },
-    "web.errors.default.plain.506": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 506,
-            "errorMessage": "Variant Also Negotiates"
-        }
-    },
-    "web.errors.default.plain.507": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 507,
-            "errorMessage": "Insufficient Storage"
-        }
-    },
-    "web.errors.default.plain.508": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 508,
-            "errorMessage": "Loop Detected"
-        }
-    },
-    "web.errors.default.plain.510": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 510,
-            "errorMessage": "Not Extended"
-        }
-    },
-    "web.errors.default.plain.511": {
-        "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
-        "parameters": {
-            "errorStatusCode": 511,
-            "errorMessage": "Network Authentication Required"
+        },
+        "web.errors.default.plain.400": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 400,
+                "errorMessage": "Bad Request"
+            }
+        },
+        "web.errors.default.plain.401": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 401,
+                "errorMessage": "Unauthorized"
+            }
+        },
+        "web.errors.default.plain.402": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 402,
+                "errorMessage": "Payment Required"
+            }
+        },
+        "web.errors.default.plain.403": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 403,
+                "errorMessage": "Forbidden"
+            }
+        },
+        "web.errors.default.plain.404": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 404,
+                "errorMessage": "Not Found"
+            }
+        },
+        "web.errors.default.plain.405": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 405,
+                "errorMessage": "Method Not Allowed"
+            }
+        },
+        "web.errors.default.plain.406": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 406,
+                "errorMessage": "Not Acceptable"
+            }
+        },
+        "web.errors.default.plain.407": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 407,
+                "errorMessage": "Proxy Authentication Required"
+            }
+        },
+        "web.errors.default.plain.408": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 408,
+                "errorMessage": "Request Timeout"
+            }
+        },
+        "web.errors.default.plain.409": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 409,
+                "errorMessage": "Conflict"
+            }
+        },
+        "web.errors.default.plain.410": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 410,
+                "errorMessage": "Gone"
+            }
+        },
+        "web.errors.default.plain.411": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 411,
+                "errorMessage": "Length Required"
+            }
+        },
+        "web.errors.default.plain.412": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 412,
+                "errorMessage": "Precondition Failed"
+            }
+        },
+        "web.errors.default.plain.413": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 413,
+                "errorMessage": "Payload Too Large"
+            }
+        },
+        "web.errors.default.plain.414": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 414,
+                "errorMessage": "URI Too Long"
+            }
+        },
+        "web.errors.default.plain.415": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 415,
+                "errorMessage": "Unsupported Media Type"
+            }
+        },
+        "web.errors.default.plain.416": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 416,
+                "errorMessage": "Range Not Satisfiable"
+            }
+        },
+        "web.errors.default.plain.417": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 417,
+                "errorMessage": "Expectation Failed"
+            }
+        },
+        "web.errors.default.plain.418": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 418,
+                "errorMessage": "I'm a teapot"
+            }
+        },
+        "web.errors.default.plain.421": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 421,
+                "errorMessage": "Misdirected Request"
+            }
+        },
+        "web.errors.default.plain.422": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 422,
+                "errorMessage": "Unprocessable Entity"
+            }
+        },
+        "web.errors.default.plain.423": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 423,
+                "errorMessage": "Locked"
+            }
+        },
+        "web.errors.default.plain.424": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 424,
+                "errorMessage": "Failed Dependency"
+            }
+        },
+        "web.errors.default.plain.425": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 425,
+                "errorMessage": "Too Early"
+            }
+        },
+        "web.errors.default.plain.426": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 426,
+                "errorMessage": "Upgrade Required"
+            }
+        },
+        "web.errors.default.plain.428": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 428,
+                "errorMessage": "Precondition Required"
+            }
+        },
+        "web.errors.default.plain.429": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 429,
+                "errorMessage": "Too Many Requests"
+            }
+        },
+        "web.errors.default.plain.431": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 431,
+                "errorMessage": "Request Header Fields Too Large"
+            }
+        },
+        "web.errors.default.plain.451": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 451,
+                "errorMessage": "Unavailable For Legal Reasons"
+            }
+        },
+        "web.errors.default.plain.500": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 500,
+                "errorMessage": "Internal Server Error"
+            }
+        },
+        "web.errors.default.plain.501": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 501,
+                "errorMessage": "Not Implemented"
+            }
+        },
+        "web.errors.default.plain.502": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 502,
+                "errorMessage": "Bad Gateway"
+            }
+        },
+        "web.errors.default.plain.503": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 503,
+                "errorMessage": "Service Unavailable"
+            }
+        },
+        "web.errors.default.plain.504": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 504,
+                "errorMessage": "Gateway Timeout"
+            }
+        },
+        "web.errors.default.plain.505": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 505,
+                "errorMessage": "HTTP Version Not Supported"
+            }
+        },
+        "web.errors.default.plain.506": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 506,
+                "errorMessage": "Variant Also Negotiates"
+            }
+        },
+        "web.errors.default.plain.507": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 507,
+                "errorMessage": "Insufficient Storage"
+            }
+        },
+        "web.errors.default.plain.508": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 508,
+                "errorMessage": "Loop Detected"
+            }
+        },
+        "web.errors.default.plain.510": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 510,
+                "errorMessage": "Not Extended"
+            }
+        },
+        "web.errors.default.plain.511": {
+            "class": "\\Ulrack\\Web\\Component\\Error\\ConfigurablePlainError",
+            "parameters": {
+                "errorStatusCode": 511,
+                "errorMessage": "Network Authentication Required"
+            }
         }
     }
 }

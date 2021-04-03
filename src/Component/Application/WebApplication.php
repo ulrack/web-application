@@ -19,35 +19,35 @@ class WebApplication implements ApplicationInterface
      *
      * @var array
      */
-    private $server;
+    private array $server;
 
     /**
      * Contains the get parameters.
      *
      * @var array
      */
-    private $get;
+    private array $get;
 
     /**
      * Contains the post values.
      *
      * @var array
      */
-    private $post;
+    private array $post;
 
     /**
      * Contains the uploaded file references.
      *
      * @var array
      */
-    private $files;
+    private array $files;
 
     /**
      * Contains the cookies.
      *
      * @var array
      */
-    private $cookies;
+    private array $cookies;
 
     /**
      * Constructor.
@@ -83,11 +83,6 @@ class WebApplication implements ApplicationInterface
     {
         $serviceFactory = $serviceManager->getServiceFactory();
         $webMimeToCodec = $serviceFactory->create('services.web.mime-to-codec');
-
-        $serviceManager->registerService(
-            'core.service.factory',
-            $serviceFactory
-        );
 
         foreach (
             $serviceFactory->create(

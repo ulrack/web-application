@@ -1,5 +1,0 @@
-{
-    "web.main.routers": {
-        "service": "services.web.router.aggregate"
-    }
-}
